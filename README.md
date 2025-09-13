@@ -1,18 +1,30 @@
-# Student Registration Form 🎓
+🎓 Student Registration System
+📖 Description
 
-## 📌 Project Overview
-This project is a **Student Registration Form** built using **HTML, CSS, and JavaScript**.  
-It allows students to enter their details in a structured form and ensures better **user interface and interactivity**.
-
+This is a Student Registration System built using HTML, CSS, and JavaScript (DOM Manipulation).
+It allows users to register students, view their details, update records, and delete them.
+The data is stored in Local Storage, so it persists even after refreshing the page.
 ---
 
-## 🚀 Features
-- Responsive design for all devices  
-- Input fields for student details (Name, Email, Phone, etc.)  
-- Form validation using JavaScript  
-- Modern and clean UI with CSS  
-- Easy to integrate and modify  
+🚀 Features
 
+➕ Add new student records
+
+✏️ Edit and update student details
+
+❌ Delete student records with confirmation
+
+🔎 Search functionality to filter students by name
+
+✅ Input validation (Name, ID, Email, Contact Number)
+
+📱 Responsive design (mobile, tablet, desktop)
+
+💾 Persistent data storage using Local Storage
+
+🎨 Modern UI with gradient background, card-style form, hover effects, and icons
+
+📜 Scrollable student list (vertical scrollbar appears automatically when many students are added)
 ---
 
 ## 🛠️ Technologies Used
@@ -23,3 +35,8 @@ It allows students to enter their details in a structured form and ensures bette
 ---
 
 ## 📂 Project Structure
+📁 Student Registration System
+ ┣ 📄 index.html
+ ┣ 📄 style.css
+ ┣ 📄 script.js
+ ┗ 📄 README.md
