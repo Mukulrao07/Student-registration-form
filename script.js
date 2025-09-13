@@ -4,9 +4,9 @@ const studentList = document.getElementById("studentList");
 const searchBar = document.getElementById("searchBar");
 
 let students = JSON.parse(localStorage.getItem("students")) || [];
-let editIndex = -1; // to track which student is being edited
+let editIndex = -1; // To track which student is being edited
 
-// Render students
+// Function to render students
 function renderStudents(filter = "") {
   studentList.innerHTML = "";
   students
@@ -20,9 +20,11 @@ function renderStudents(filter = "") {
         <td data-label="Email">${student.email}</td>
         <td data-label="Contact">${student.contact}</td>
         <td class="actions">
+          <!-- Edit button -->
           <button class="edit" onclick="editStudent(${index})">
             <i class="fas fa-edit"></i>
           </button>
+          <!-- Delete button -->
           <button class="delete" onclick="deleteStudent(${index})">
             <i class="fas fa-trash"></i>
           </button>
@@ -32,7 +34,7 @@ function renderStudents(filter = "") {
     });
 }
 
-// Add or Update Student
+// Handle Add / Update Student
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -41,7 +43,7 @@ form.addEventListener("submit", (e) => {
   const email = document.getElementById("email").value.trim();
   const contact = document.getElementById("contact").value.trim();
 
-  // Validation
+  // ✅ Validation
   if (!name.match(/^[A-Za-z\s]+$/)) {
     alert("Name must contain only letters!");
     return;
@@ -62,20 +64,21 @@ form.addEventListener("submit", (e) => {
   const student = { name, studentId, email, contact };
 
   if (editIndex === -1) {
-    // Add new student
+    // ➕ Add new student
     students.push(student);
   } else {
-    // Update existing student
+    // ✏️ Update existing student
     students[editIndex] = student;
-    editIndex = -1; // reset edit mode
+    editIndex = -1; // Reset edit mode
   }
 
+  // Save to Local Storage
   localStorage.setItem("students", JSON.stringify(students));
   renderStudents();
   form.reset();
 });
 
-// Edit Student
+// Function to edit student
 function editStudent(index) {
   const student = students[index];
 
@@ -84,22 +87,22 @@ function editStudent(index) {
   document.getElementById("email").value = student.email;
   document.getElementById("contact").value = student.contact;
 
-  editIndex = index; // remember which student is being edited
+  editIndex = index; // Remember which student is being edited
 }
 
-// Delete Student
+// Function to delete student
 function deleteStudent(index) {
   if (confirm("Are you sure you want to delete this record?")) {
-    students.splice(index, 1);
+    students.splice(index, 1); // Remove student
     localStorage.setItem("students", JSON.stringify(students));
     renderStudents();
   }
 }
 
-// Search functionality
+// 🔍 Search functionality
 searchBar.addEventListener("input", (e) => {
   renderStudents(e.target.value);
 });
 
-// Initial render
+// Initial render on page load
 renderStudents();
