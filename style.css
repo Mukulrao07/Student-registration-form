@@ -107,7 +107,14 @@ input:focus {
   margin-bottom: 15px;
 }
 
-/* Table */
+/* Table with scrollbar */
+.table-container {
+  max-height: 300px; /* Fixed height */
+  overflow-y: auto;  /* Scrollbar will appear when many rows */
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
